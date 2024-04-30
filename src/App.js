@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { FilterableProductTable } from "./components/Page";
+import "./assets/main.css";
+import { Card } from "./components/card/Card";
+import { FilterableProductCard } from "./components/PageCard";
 
-function App() {
+const PRODUCTS = [
+  { category: "Frutas", price: "$1", stocked: true, name: "Manzana" },
+  { category: "Frutas", price: "$1", stocked: true, name: "Fruta del dragón" },
+  { category: "Frutas", price: "$2", stocked: false, name: "Maracuyá" },
+  { category: "Verduras", price: "$2", stocked: true, name: "Espinaca" },
+  { category: "Verduras", price: "$4", stocked: false, name: "Calabaza" },
+  { category: "Verduras", price: "$1", stocked: true, name: "Guisantes" },
+];
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container mx-auto px-8">
+      <h1 className="text-2xl font-bold underline text-red-600">
+        Hello world!
+      </h1>
+      <FilterableProductTable products={PRODUCTS} />
+      <div className="mt-10">
+        <FilterableProductCard products={PRODUCTS}></FilterableProductCard>
+      </div>
     </div>
   );
 }
-
-export default App;
